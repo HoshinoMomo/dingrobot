@@ -17,7 +17,7 @@ public class YPYFBHandler implements BaseHandler {
         }else if(content.contains("张易")){
            return "张易是大帅哥，哈哈哈";
         }
-        content = "你可以跟我说：值班、jar、分享,获取相应的confluence地址\n" + content;
+        content = "你可以跟我说：值班、jar、分享,获取相应1的confluence地址\n" + content;
         return content;
     }
 }
