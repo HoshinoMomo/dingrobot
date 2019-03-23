@@ -2,12 +2,14 @@ package com.github.softeasyzhang.dingrobot.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.github.softeasyzhang.dingrobot.controller.handler.TestHandler;
+import com.github.softeasyzhang.dingrobot.controller.handler.WTFKQHandler;
 import com.github.softeasyzhang.dingrobot.controller.handler.YPYFBHandler;
 import com.github.softeasyzhang.dingrobot.entity.RobotRequest;
 import com.github.softeasyzhang.dingrobot.entity.RobotResponse;
 import com.github.softeasyzhang.dingrobot.util.DefaultValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,13 +44,10 @@ public class ReplyController {
         BaseHandler baseHandler = new TestHandler();
         if(DefaultValue.YPYFB.equals(token)){
             baseHandler = new YPYFBHandler();
+        }else if(DefaultValue.WTFKQ.equals(token)){
+            baseHandler = new WTFKQHandler();
         }
 
-        String response = baseHandler.getResultMessage(content);
-        logger.info("获得返回值:{}",response);
-        RobotResponse robotResponse = new RobotResponse();
-        robotResponse.setText(new RobotResponse.Text(){{setContent(response);}});
-        robotResponse.setAt(new RobotResponse.At(){{setAtDingtalkIds(Collections.singletonList(senderId));}});
-        return JSON.toJSONString(robotResponse);
+        return JSON.toJSONString(baseHandler.getResultMessage(content, senderId));
     }
 }

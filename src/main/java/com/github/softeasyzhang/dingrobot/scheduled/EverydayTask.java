@@ -28,6 +28,7 @@ public class EverydayTask {
     @Scheduled(cron="*/30 * * * * ?")
     //@Scheduled(cron="0 56 9 ? * *")
     private void process(){
+        send();
         logger.info("执行每天发送.....");
     }
 
@@ -38,6 +39,8 @@ public class EverydayTask {
         stringBuilder.append("爸爸们:").append("\n ------------------")
                 .append("\n今日值班人:").append(employee.getName())
                 .append("\n--------------------").append("\n");
+
+        logger.info("发送信息{}",stringBuilder.toString());
 
         TextMessage textMessage = new TextMessage(stringBuilder.toString());
         textMessage.setIsAtAll(true);

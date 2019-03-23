@@ -32,6 +32,19 @@ public class RobotResponse {
         this.at = at;
     }
 
+    public static RobotResponse build(String result, List<String> at){
+        RobotResponse robotResponse = new RobotResponse();
+
+        RobotResponse.At ats = new RobotResponse.At();
+        RobotResponse.Text text = new RobotResponse.Text();
+        ats.setAtDingtalkIds(at);
+        text.setContent(result);
+
+        robotResponse.setText(text);
+        robotResponse.setAt(ats);
+        return robotResponse;
+    }
+
     public static class Text{
         private String content;
         public String getContent() {
