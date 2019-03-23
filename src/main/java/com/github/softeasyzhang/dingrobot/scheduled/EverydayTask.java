@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import javax.xml.ws.soap.Addressing;
 import java.io.IOException;
 
 /**
@@ -25,8 +24,8 @@ public class EverydayTask {
     private IWhoIsTurn whoIsTurn;
 
     private static final Logger logger = LoggerFactory.getLogger(EverydayTask.class);
-    @Scheduled(cron="*/30 * * * * ?")
-    //@Scheduled(cron="0 56 9 ? * *")
+    //@Scheduled(cron="*/30 * * * * ?")
+    @Scheduled(cron="0 26 9 ? * *")
     private void process(){
         send();
         logger.info("执行每天发送.....");
@@ -47,7 +46,7 @@ public class EverydayTask {
 
         DingtalkChatbotClient dingtalkChatbotClient = new DingtalkChatbotClient();
         try {
-            dingtalkChatbotClient.send(DefaultValue.testRobot, textMessage);
+            dingtalkChatbotClient.send(DefaultValue.ypyfbRobot, textMessage);
         } catch (IOException e) {
             e.printStackTrace();
         }
