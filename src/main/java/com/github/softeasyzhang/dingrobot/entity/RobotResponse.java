@@ -1,8 +1,14 @@
 package com.github.softeasyzhang.dingrobot.entity;
 
+import com.alibaba.fastjson.JSON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.List;
 
 public class RobotResponse {
+
+    private static final Logger logger = LoggerFactory.getLogger(RobotResponse.class);
 
     private String msgtype = "text";
     private Text text;
@@ -42,6 +48,8 @@ public class RobotResponse {
 
         robotResponse.setText(text);
         robotResponse.setAt(ats);
+
+        logger.info("返回{}", JSON.toJSONString(robotResponse));
         return robotResponse;
     }
 
