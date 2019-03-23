@@ -17,15 +17,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Collections;
 
 @Controller
 @RequestMapping("/ding/robot")
 public class ReplyController {
 
     private static final Logger logger = LoggerFactory.getLogger(ReplyController.class);
+
+    @Autowired
+    private YPYFBHandler ypyfbHandler;
+    @Autowired
+    private WTFKQHandler wtfkqHandler;
+    @Autowired
+    private TestHandler testHandler;
 
     /**
      * YPYFB  优配研发部
@@ -41,11 +45,11 @@ public class ReplyController {
         String senderId = robotRequest.getSenderId();
         logger.info("用户{}发送消息给机器人:Token{},Content{}",senderId,token,content);
 
-        BaseHandler baseHandler = new TestHandler();
+        BaseHandler baseHandler = testHandler;
         if(DefaultValue.YPYFB.equals(token)){
-            baseHandler = new YPYFBHandler();
+            baseHandler = ypyfbHandler;
         }else if(DefaultValue.WTFKQ.equals(token)){
-            baseHandler = new WTFKQHandler();
+            baseHandler = wtfkqHandler;
         }
 
         return JSON.toJSONString(baseHandler.getResultMessage(content, senderId));
