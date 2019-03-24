@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Collections;
 import java.util.List;
 
 public class RobotResponse {
@@ -38,12 +39,13 @@ public class RobotResponse {
         this.at = at;
     }
 
-    public static RobotResponse build(String result, List<String> at){
+    public static RobotResponse build(String result, String senderId,List<String> atMobiles){
         RobotResponse robotResponse = new RobotResponse();
 
         RobotResponse.At ats = new RobotResponse.At();
         RobotResponse.Text text = new RobotResponse.Text();
-        ats.setAtDingtalkIds(at);
+        ats.setAtDingtalkIds(Collections.singletonList(senderId));
+        ats.setAtMobiles(atMobiles);
         text.setContent(result);
 
         robotResponse.setText(text);

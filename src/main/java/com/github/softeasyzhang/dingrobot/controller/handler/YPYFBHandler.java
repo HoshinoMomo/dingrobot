@@ -4,6 +4,7 @@ import com.github.softeasyzhang.dingrobot.controller.BaseHandler;
 import com.github.softeasyzhang.dingrobot.entity.RobotResponse;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.Collections;
 @Component
 public class YPYFBHandler implements BaseHandler {
@@ -25,7 +26,7 @@ public class YPYFBHandler implements BaseHandler {
         }
         result = "你可以跟我说：值班、jar、分享,获取相应1的confluence地址\n" + result;
 
-        return RobotResponse.build(result,Collections.singletonList(senderId));
+        return RobotResponse.build(result,senderId,new ArrayList<>());
     }
 }
 
