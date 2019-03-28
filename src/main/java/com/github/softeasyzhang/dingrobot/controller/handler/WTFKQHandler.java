@@ -50,7 +50,9 @@ public class WTFKQHandler implements BaseHandler {
             atMobiles.add(AllMember.getAllMembers().get("景启明").getDingNo());
         }else if(content.contains("司机端")){
             atMobiles.add(AllMember.getAllMembers().get("王利").getDingNo());
-        }else{
+        }else if(content.contains("反作弊")){
+            atMobiles.add(AllMember.getAllMembers().get("范兴杰").getDingNo());
+        }else {
             result = content;
         }
 

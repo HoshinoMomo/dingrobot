@@ -23,6 +23,7 @@ public class AllMember {
         membersHashMap.put("王凯萌",new Employee("王凯萌","ifr7zfk"));
         membersHashMap.put("徐瑞",new Employee("徐瑞","18683954321"));
         membersHashMap.put("杨熹",new Employee("杨熹","15803135353"));
+        membersHashMap.put("范兴杰",new Employee("范兴杰","13691554670"));
     }
 
     public static Map<String,Employee> getAllMembers(){
