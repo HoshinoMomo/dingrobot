@@ -45,12 +45,15 @@ public class WTFKQHandler implements BaseHandler {
         }else if(content.contains("展示")){
             result = "已收到谢谢";
             atMobiles.add(AllMember.getAllMembers().get("徐瑞").getDingNo());
-        }else if(content.contains("PC")){
+        }else if(content.contains("PC")||content.contains("官网")){
+            result = "PC官网可能有点问题";
             atMobiles.add(AllMember.getAllMembers().get("刘丹").getDingNo());
             atMobiles.add(AllMember.getAllMembers().get("景启明").getDingNo());
         }else if(content.contains("司机端")){
+            result = "司机端有点问题";
             atMobiles.add(AllMember.getAllMembers().get("王利").getDingNo());
         }else if(content.contains("反作弊")){
+            result = "用户触发了反作弊校验，麻烦帮忙看看是什么原因，谢谢。";
             atMobiles.add(AllMember.getAllMembers().get("范兴杰").getDingNo());
         }else {
             result = content;
