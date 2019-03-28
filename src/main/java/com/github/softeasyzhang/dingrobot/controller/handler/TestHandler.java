@@ -1,11 +1,10 @@
 package com.github.softeasyzhang.dingrobot.controller.handler;
 
-import com.github.softeasyzhang.dingrobot.controller.BaseHandler;
+
 import com.github.softeasyzhang.dingrobot.entity.RobotResponse;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Collections;
 @Component
 public class TestHandler implements BaseHandler {
     @Override

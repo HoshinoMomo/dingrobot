@@ -1,11 +1,11 @@
 package com.github.softeasyzhang.dingrobot.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.github.softeasyzhang.dingrobot.controller.handler.BaseHandler;
 import com.github.softeasyzhang.dingrobot.controller.handler.TestHandler;
 import com.github.softeasyzhang.dingrobot.controller.handler.WTFKQHandler;
 import com.github.softeasyzhang.dingrobot.controller.handler.YPYFBHandler;
 import com.github.softeasyzhang.dingrobot.entity.RobotRequest;
-import com.github.softeasyzhang.dingrobot.entity.RobotResponse;
 import com.github.softeasyzhang.dingrobot.util.DefaultValue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
