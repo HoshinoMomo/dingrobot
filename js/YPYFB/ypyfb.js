@@ -1,3 +1,5 @@
+
+
 function handle(content,result) {
 
     if(content.contains("分享")){
@@ -13,7 +15,8 @@ function handle(content,result) {
         result += "RD:kg-ppd@daojia-inc.com \n";
         result += "FE:kg-fe-p@daojia-inc.com\n";
         result += "QA:kg-qa-pp@daojia-inc.com\n";
+    }else {
+        result = "你可以跟我说：值班、jar、分享,获取相应1的confluence地址\n";
     }
-    result = "你可以跟我说：值班、jar、分享,获取相应1的confluence地址\n" + result;
     return result;
 }

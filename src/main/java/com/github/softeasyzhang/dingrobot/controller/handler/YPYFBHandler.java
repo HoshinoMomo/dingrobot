@@ -20,7 +20,8 @@ public class YPYFBHandler implements BaseHandler {
             //执行脚本
             Invocable invocable = getInvocable(jsRoot);
             invocable.invokeFunction("handle",content,result);
-            return RobotResponse.build(result,senderId,new ArrayList<>());
+
+            return RobotResponse.build(result+"",senderId,new ArrayList<>());
 
         } catch (Exception e) {
             e.printStackTrace();
