@@ -1,6 +1,5 @@
 package com.github.softeasyzhang.dingrobot.controller.handler;
 
-import com.alibaba.fastjson.JSON;
 import com.github.softeasyzhang.dingrobot.entity.AllMember;
 import com.github.softeasyzhang.dingrobot.entity.Employee;
 import com.github.softeasyzhang.dingrobot.entity.RobotResponse;
@@ -9,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.script.Invocable;
-import javax.script.ScriptException;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
 public class WTFKQHandler implements BaseHandler {
 
     private final String jsRoot = baseRoot + "/WTFKQ/wtfkq.js";
+    private final ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
 
     @Autowired
     private IWhoIsTurn whoIsTurn;
@@ -29,7 +31,8 @@ public class WTFKQHandler implements BaseHandler {
 
         try {
             //执行脚本
-            Invocable invocable = getInvocable(jsRoot);
+            engine.eval(new FileReader(jsRoot));
+            Invocable invocable = (Invocable)engine;
             String result = (String) invocable.invokeFunction("handle",content, AllMember.getAllMembers(),atMobiles);
             //@发送人  @今天值班人
             atMobiles.add(whoIsTurn.getWhoIsTurn().getDingNo());
