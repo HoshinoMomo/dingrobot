@@ -14,15 +14,12 @@ public class YPYFBHandler implements BaseHandler {
 
     @Override
     public RobotResponse getResultMessage(String content, String senderId) {
-        String result = "";
 
         try {
             //执行脚本
             Invocable invocable = getInvocable(jsRoot);
-            invocable.invokeFunction("handle",content,result);
-
+            String result = (String) invocable.invokeFunction("handle",content);
             return RobotResponse.build(result+"",senderId,new ArrayList<>());
-
         } catch (Exception e) {
             e.printStackTrace();
             return RobotResponse.build("暂无您要的信息",senderId,new ArrayList<>());

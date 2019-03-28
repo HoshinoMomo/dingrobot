@@ -1,6 +1,8 @@
 
 
-function handle(content,result) {
+function handle(content) {
+
+    let result = "";
 
     if(content.contains("分享")){
         result = "http://confluence.daojia-inc.com/pages/viewpage.action?pageId=69399927";

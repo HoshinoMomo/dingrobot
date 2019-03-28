@@ -1,7 +1,8 @@
 
 
-function handle(content,result,allMembers,atMobiles) {
+function handle(content,allMembers,atMobiles) {
 
+    let result = "";
 
     if(content.contains("下单")){
         result = "如果是App,请确认手机型号并告知QA同学! \n QA同学会进行复现,稍后通知您结果" ;
