@@ -12,7 +12,7 @@ import java.io.FileReader;
  */
 public interface BaseHandler {
 
-    String baseRoot = "/js";
+    String baseRoot = "js";
 
     RobotResponse getResultMessage(String content, String senderId);
 
