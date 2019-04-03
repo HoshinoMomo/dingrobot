@@ -18,6 +18,7 @@ public class AllMember {
         membersHashMap.put("王利",new Employee("王利","15201126483"));
         membersHashMap.put("鲁俊",new Employee("鲁俊","15116276835"));
         membersHashMap.put("常智胜",new Employee("常智胜","18258288296"));
+        membersHashMap.put("刘晟源",new Employee("刘晟源","13821652619"));
 
         membersHashMap.put("高岩",new Employee("高岩","18710018068"));
         membersHashMap.put("王凯萌",new Employee("王凯萌","ifr7zfk"));

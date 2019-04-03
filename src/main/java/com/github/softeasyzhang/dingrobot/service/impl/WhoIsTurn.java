@@ -16,7 +16,7 @@ public class WhoIsTurn implements IWhoIsTurn {
     /**
      * 时间基线
      */
-    private static final LocalDate baseLocalDate = LocalDate.of(2019,03,24);
+    private static final LocalDate baseLocalDate = LocalDate.of(2019,04,02);
 
     /**
      * 参与排班的人
