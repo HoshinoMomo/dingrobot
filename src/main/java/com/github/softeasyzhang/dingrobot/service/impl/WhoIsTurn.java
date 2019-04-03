@@ -33,6 +33,7 @@ public class WhoIsTurn implements IWhoIsTurn {
         employeeList.add(AllMember.getAllMembers().get("常智胜"));
         employeeList.add(AllMember.getAllMembers().get("张易"));
         employeeList.add(AllMember.getAllMembers().get("郭申"));
+        employeeList.add(AllMember.getAllMembers().get("刘晟源"));
     }
 
     @Override
