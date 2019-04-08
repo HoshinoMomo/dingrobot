@@ -37,6 +37,7 @@ public class EverydayTask {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("爸爸们:").append("\n ------------------")
                 .append("\n今日值班人:").append(employee.getName())
+                .append("\n链接:").append("http://confluence.daojia-inc.com/pages/viewpage.action?pageId=79030052 ")
                 .append("\n--------------------").append("\n");
 
         logger.info("发送信息{}",stringBuilder.toString());
