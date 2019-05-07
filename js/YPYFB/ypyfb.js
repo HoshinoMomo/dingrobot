@@ -2,7 +2,7 @@
 
 function handle(content) {
 
-    let result = "";
+    var result = "";
 
     if(content.contains("分享")){
         result = "http://confluence.daojia-inc.com/pages/viewpage.action?pageId=69399927";
